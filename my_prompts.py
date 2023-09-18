@@ -23,7 +23,7 @@ Format in HTML. Text should be divided into paragraphs. Paragraphs should be ind
 """
 
 youtube_map = """
-You will be given a single section from a transcript of a youtube video. This will be enclosed in triple backticks. Please identify the date and time of the meeting from the start and end of the transcript section, even if it is not properly formatted, and format it correctly in the "CALL TO ORDER" and "ADJOURNMENT" sections.
+You will be given a single section from a transcript of a youtube video. This will be enclosed in triple backticks. Please identify the date and time, even if it is not properly formatted, and format it correctly in the "CALL TO ORDER" and "ADJOURNMENT" sections.
 
 Also, pay special attention to capturing motions, votes, and key discussion points in the "ACTION ITEMS" section.
 
@@ -58,7 +58,7 @@ FULL SUMMARY:
     (List any action items or notable moments from this section, particularly emphasizing motions and votes)
 
 - ADJOURNMENT:
-    "The meeting was adjourned on {date}, at {time}."
+    "The meeting was adjourned."
     (Mention the conclusion of this section of the video, including the time it ended)
 """
 
@@ -98,7 +98,7 @@ Preceding the synopsis, write a short, bullet form list of key takeaways. Format
     (List key action items or notable moments from the video, especially emphasizing motions and votes)
 
 - ADJOURNMENT:
-    "The meeting was adjourned on {date}, at {time}."
+    "The meeting was adjourned."
     (Summarize the conclusion of the video, including the time it ended)
    
 - KEY TAKEAWAYS:
