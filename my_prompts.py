@@ -23,7 +23,7 @@ Format in HTML. Text should be divided into paragraphs. Paragraphs should be ind
 """
 
 youtube_map = """
-You will be given a single section from a transcript of a youtube video. This will be enclosed in triple backticks. Please identify the date and time, even if it is not properly formatted, and format it correctly in the "CALL TO ORDER" and "ADJOURNMENT" sections.
+You will be given a single section from a transcript of a youtube video. This will be enclosed in triple backticks. Please identify the date and time of the meeting from the start and end of the transcript section, even if it is not properly formatted, and format it correctly in the "CALL TO ORDER" and "ADJOURNMENT" sections.
 
 Also, pay special attention to capturing motions, votes, and key discussion points in the "ACTION ITEMS" section.
 
@@ -36,7 +36,7 @@ Please provide a cohesive summary of the section of the transcript in the style 
 FULL SUMMARY:
 
 - CALL TO ORDER:
-    "Chair Brunner called to order the Planning and Zoning & Historic Commission ('PZHC') meeting."
+    "Chair Brunner called to order the Planning and Zoning & Historic Commission ('PZHC') meeting on {meeting_date}, at {meeting_time}."
 
 - ROLL CALL:
     Commissioners: Steneck, Brunner, Myers, Feck, Krueger, Reyes-Brahar, Scarpelli
@@ -58,14 +58,12 @@ FULL SUMMARY:
     (List any action items or notable moments from this section, particularly emphasizing motions and votes)
 
 - ADJOURNMENT:
-    "The meeting was adjourned."
+    "The meeting was adjourned on {adjournment_date}, at {adjournment_time}."
     (Mention the conclusion of this section of the video, including the time it ended)
 """
 
-
 youtube_combine = """
-Read all the provided summaries from a youtube transcript. They will be enclosed in triple backticks.
-Determine what the overall video is about and summarize it with this information in mind, structured in the style of Action Minutes with the sections "CALL TO ORDER", "ROLL CALL", "APPROVAL OF MINUTES", "PUBLIC COMMENT", "NEW BUSINESS", "OLD BUSINESS", "ACTION ITEMS", and "ADJOURNMENT". 
+Read all the provided summaries from a youtube transcript. They will be enclosed in triple backticks. Determine what the overall video is about and summarize it with this information in mind, structured in the style of Action Minutes with the sections "CALL TO ORDER", "ROLL CALL", "APPROVAL OF MINUTES", "PUBLIC COMMENT", "NEW BUSINESS", "OLD BUSINESS", "ACTION ITEMS", and "ADJOURNMENT". 
 
 Synthesize the info into a well-formatted, easy-to-read synopsis, structured like an essay that summarizes them cohesively. Connect all the ideas together and avoid repetition. Do not simply reword the provided text. Do not copy the structure from the provided text.
 
@@ -76,7 +74,7 @@ Preceding the synopsis, write a short, bullet form list of key takeaways. Format
 '''
 
 - CALL TO ORDER:
-    "Chair Brunner called to order the Planning and Zoning & Historic Commission ('PZHC') meeting."
+    "Chair Brunner called to order the Planning and Zoning & Historic Commission ('PZHC') meeting on {meeting_date}, at {meeting_time}."
 
 - ROLL CALL:
     Commissioners: Steneck, Brunner, Myers, Feck, Krueger, Reyes-Brahar, Scarpelli
@@ -98,11 +96,16 @@ Preceding the synopsis, write a short, bullet form list of key takeaways. Format
     (List key action items or notable moments from the video, especially emphasizing motions and votes)
 
 - ADJOURNMENT:
-    "The meeting was adjourned."
+    "The meeting was adjourned on {adjournment_date}, at {adjournment_time}."
     (Summarize the conclusion of the video, including the time it ended)
    
 - KEY TAKEAWAYS:
-    (Bullet list of the most important points from the video)
+    <!-- Begin HTML formatted key takeaways here -->
+    <ul>
+        <li>(Key takeaway 1)</li>
+        <li>(Key takeaway 2)</li>
+        <li>(Key takeaway 3)</li>
+    </ul>
    
 <!-- Begin HTML formatted synopsis here -->
 ...
