@@ -34,7 +34,7 @@ Please provide a cohesive summary of the section of the transcript in the style 
 FULL SUMMARY:
 
 - CALL TO ORDER:
-    "Chair Brunner called to order the Planning and Zoning & Historic Commission ('PZHC') meeting on {date}, at {time}."
+    "Chair Brunner called to order the Planning and Zoning & Historic Commission ('PZHC') meeting on."
 
 - ROLL CALL:
     Commissioners: Steneck, Brunner, Myers, Feck, Krueger, Reyes-Brahar, Scarpelli
@@ -66,7 +66,7 @@ Format in HTML. Text should be divided into paragraphs. Paragraphs should be ind
 '''
 
 - CALL TO ORDER:
-    "Chair Brunner called to order the Planning and Zoning & Historic Commission ('PZHC') meeting on {date}, at {time}."
+    "Chair Brunner called to order the Planning and Zoning & Historic Commission ('PZHC') meeting on."
 
 - ROLL CALL:
     Commissioners: Steneck, Brunner, Myers, Feck, Krueger, Reyes-Brahar, Scarpelli
