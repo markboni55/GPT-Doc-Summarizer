@@ -23,9 +23,11 @@ Format in HTML. Text should be divided into paragraphs. Paragraphs should be ind
 """
 
 youtube_map = """
-You will be given a single section from a transcript of a youtube video. This will be enclosed in triple backticks. In the first chunk, identify the date and time of the meeting, even if it is not properly formatted. Please format it correctly in the "CALL TO ORDER" section. 
+You will be given a single section from a transcript of a youtube video. This will be enclosed in triple backticks. Please identify the date and time of the meeting from the start and end of the transcript section, even if it is not properly formatted, and format it correctly in the "CALL TO ORDER" and "ADJOURNMENT" sections.
 
-Please provide a cohesive summary of the section of the transcript in the style of Action Minutes, focusing on the key points and main ideas, while maintaining clarity and conciseness. Ensure to include sections such as "CALL TO ORDER", "ROLL CALL", and others as appropriate.
+Also, pay special attention to capturing motions, votes, and key discussion points in the "ACTION ITEMS" section.
+
+Please provide a cohesive summary of the section of the transcript in the style of Action Minutes, focusing on the key points and main ideas, while maintaining clarity and conciseness. Ensure to include the following sections as appropriate:
 
 '''
 {text}
@@ -34,52 +36,70 @@ Please provide a cohesive summary of the section of the transcript in the style 
 FULL SUMMARY:
 
 - CALL TO ORDER:
-    "Chair Brunner called to order the Planning and Zoning & Historic Commission ('PZHC') meeting on."
+    "Chair Brunner called to order the Planning and Zoning & Historic Commission ('PZHC') meeting."
 
 - ROLL CALL:
     Commissioners: Steneck, Brunner, Myers, Feck, Krueger, Reyes-Brahar, Scarpelli
     (Identify which commissioners were present and which were absent in this section of the video)
-    
-- MAIN DISCUSSION:
-    (Summarize the key points discussed in this section)
-   
+
+- APPROVAL OF MINUTES:
+    (Summarize any discussions or motions related to the approval of minutes from previous meetings)
+
+- PUBLIC COMMENT:
+    (Summarize any public comments presented during this section)
+
+- NEW BUSINESS:
+    (Provide a detailed summary of the new business discussed during the meeting, including any motions made and votes cast)
+
+- OLD BUSINESS:
+    (Summarize discussions pertaining to old business, including any action items or decisions made)
+
 - ACTION ITEMS:
-    (List any action items or notable moments from this section)
+    (List any action items or notable moments from this section, particularly emphasizing motions and votes)
 
 - ADJOURNMENT:
-    (Mention the conclusion of this section of the video)
-
+    "The meeting was adjourned on {date}, at {time}."
+    (Mention the conclusion of this section of the video, including the time it ended)
 """
 
 
 youtube_combine = """
 Read all the provided summaries from a youtube transcript. They will be enclosed in triple backticks.
-Determine what the overall video is about and summarize it with this information in mind. Structure the summary in the style of Action Minutes with sections like "CALL TO ORDER", "ROLL CALL", "MAIN DISCUSSION", "ACTION ITEMS", and "ADJOURNMENT". 
-Synthesize the info into a well-formatted easy-to-read synopsis, structured like an essay that summarizes them cohesively. 
-Do not simply reword the provided text. Do not copy the structure from the provided text.
-Avoid repetition. Connect all the ideas together.
-Preceding the synopsis, write a short, bullet form list of key takeaways.
-Format in HTML. Text should be divided into paragraphs. Paragraphs should be indented. 
+Determine what the overall video is about and summarize it with this information in mind, structured in the style of Action Minutes with the sections "CALL TO ORDER", "ROLL CALL", "APPROVAL OF MINUTES", "PUBLIC COMMENT", "NEW BUSINESS", "OLD BUSINESS", "ACTION ITEMS", and "ADJOURNMENT". 
+
+Synthesize the info into a well-formatted, easy-to-read synopsis, structured like an essay that summarizes them cohesively. Connect all the ideas together and avoid repetition. Do not simply reword the provided text. Do not copy the structure from the provided text.
+
+Preceding the synopsis, write a short, bullet form list of key takeaways. Format in HTML. Text should be divided into paragraphs. Paragraphs should be indented.
 
 '''
 {text}
 '''
 
 - CALL TO ORDER:
-    "Chair Brunner called to order the Planning and Zoning & Historic Commission ('PZHC') meeting on."
+    "Chair Brunner called to order the Planning and Zoning & Historic Commission ('PZHC') meeting."
 
 - ROLL CALL:
     Commissioners: Steneck, Brunner, Myers, Feck, Krueger, Reyes-Brahar, Scarpelli
     (Summarize the attendance of the commissioners throughout the video)
-   
-- MAIN DISCUSSION:
-    (Provide a comprehensive summary of the main discussion points throughout the video)
-    
+
+- APPROVAL OF MINUTES:
+    (Summarize any discussions or motions pertaining to the approval of minutes throughout the video)
+
+- PUBLIC COMMENT:
+    (Provide a comprehensive summary of public comments throughout the video)
+
+- NEW BUSINESS:
+    (Summarize new business discussed throughout the video, including any key motions and votes)
+
+- OLD BUSINESS:
+    (Summarize discussions on old business throughout the video, including any significant decisions or action items)
+
 - ACTION ITEMS:
-    (List any key takeaways or action items from the video)
-   
+    (List key action items or notable moments from the video, especially emphasizing motions and votes)
+
 - ADJOURNMENT:
-    (Summarize the conclusion of the video)
+    "The meeting was adjourned on {date}, at {time}."
+    (Summarize the conclusion of the video, including the time it ended)
    
 - KEY TAKEAWAYS:
     (Bullet list of the most important points from the video)
