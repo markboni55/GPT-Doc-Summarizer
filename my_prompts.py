@@ -1,10 +1,10 @@
 file_map = """
 You will be given a single section from a text. This will be enclosed in triple backticks.
-Please provide a cohesive summary of the following section excerpt, focusing on the key points and main ideas, while maintaining clarity and conciseness.
+Provide Detailed Summary including the following sections, [CALL TO ORDER: ROLL CALL: APPROVAL OF MINUTES PUBLIC COMMENT:  NEW BUSINESS: OLD BUSINESS: ADJOURNMENT:] 
 
 '''{text}'''
 
-FULL SUMMARY:
+DETAILED SUMMARY:
 """
 
 
