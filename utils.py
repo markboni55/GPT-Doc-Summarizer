@@ -154,27 +154,8 @@ def create_summarize_chain(prompt_list):
 
     :return: A langchain summarize chain.
     """
-    section_templates = (
-        "CALL TO ORDER: {call_to_order_summary}\n"
-        "ROLL CALL: {roll_call_summary}\n"
-        "APPROVAL OF MINUTES: {approval_of_minutes_summary}\n"
-        "PUBLIC COMMENT: {public_comment_summary}\n"
-        "NEW BUSINESS: {new_business_summary}\n"
-        "OLD BUSINESS: {old_business_summary}\n"
-        "ADJOURNMENT: {adjournment_summary}\n"
-        "DETAILED SUMMARY:\n"
-    )
-
-    # Replace placeholders like '{call_to_order_summary}', '{roll_call_summary}', etc.
-    # with functions to extract and summarize these sections from the input data.
-    # For example, 
-    # "CALL TO ORDER: " + extract_call_to_order_summary(prompt_list[1]),
-    # "ROLL CALL: " + extract_roll_call_summary(prompt_list[1]),
-    # ...
-
-    template = PromptTemplate(template=section_templates, input_variables=([prompt_list[1]]))
+    template = PromptTemplate(template=prompt_list[0], input_variables=([prompt_list[1]]))
     chain = load_summarize_chain(llm=prompt_list[2], chain_type='stuff', prompt=template)
-
     return chain
 
 
@@ -313,6 +294,33 @@ def extract_summary_docs(langchain_document, num_clusters, api_key, find_cluster
 
     indices = get_closest_vectors(vectors, kmeans)
     summary_docs = map_vectors_to_docs(indices, split_document)
+        for doc in summary_docs:
+        input_text = doc.text  # Assuming the document object has a 'text' attribute
+
+        # Construct the prompt
+        prompt = f"""
+        Provide a detailed summary of the following text, including the following sections:
+        CALL TO ORDER: 
+        ROLL CALL: 
+        APPROVAL OF MINUTES:
+        PUBLIC COMMENT:  
+        NEW BUSINESS: 
+        OLD BUSINESS: 
+        ADJOURNMENT: 
+        Additionally, preserve important key meeting notes, votes, and commissioner attendance details.
+
+        {input_text}
+        """
+
+        # Use the GPT model to generate the summary
+        response = openai.Completion.create(
+          engine="gpt-4",  # Assuming gpt-4 is available as an engine
+          prompt=prompt,
+          max_tokens=150,  # Adjust as necessary
+        )
+
+        summary_text = response.choices[0].text.strip()
+        doc.text = summary_text  # Update the document object with the summary text
     return summary_docs
 
 
@@ -396,8 +404,3 @@ def transcript_loader(video_url):
     transcript = YoutubeLoader(video_id=extract_video_id(video_url))
     loaded = transcript.load()
     return loaded
-
-
-
-
-
