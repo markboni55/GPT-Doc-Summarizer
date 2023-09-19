@@ -294,33 +294,6 @@ def extract_summary_docs(langchain_document, num_clusters, api_key, find_cluster
 
     indices = get_closest_vectors(vectors, kmeans)
     summary_docs = map_vectors_to_docs(indices, split_document)
-    for doc in summary_docs:  # Ensure this line is indented correctly
-        input_text = doc.text  # Assuming the document object has a 'text' attribute
-
-        # Construct the prompt
-        prompt = f"""
-        Provide a detailed summary of the following text, including the following sections:
-        CALL TO ORDER: 
-        ROLL CALL: 
-        APPROVAL OF MINUTES:
-        PUBLIC COMMENT:  
-        NEW BUSINESS: 
-        OLD BUSINESS: 
-        ADJOURNMENT: 
-        Additionally, preserve important key meeting notes, votes, and commissioner attendance details.
-
-        {input_text}
-        """
-
-        # Use the GPT model to generate the summary
-        response = openai.Completion.create(
-          engine="gpt-4",  # Assuming gpt-4 is available as an engine
-          prompt=prompt,
-          max_tokens=150,  # Adjust as necessary
-        )
-
-        summary_text = response.choices[0].text.strip()
-        doc.text = summary_text  # Update the document object with the summary text
     return summary_docs
 
 
