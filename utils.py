@@ -154,8 +154,19 @@ def create_summarize_chain(prompt_list):
 
     :return: A langchain summarize chain.
     """
-    template = PromptTemplate(template=prompt_list[0], input_variables=([prompt_list[1]]))
+    section_templates = [
+        "CALL TO ORDER: {call_to_order}",
+        "ROLL CALL: {roll_call}",
+        "APPROVAL OF MINUTES: {approval_of_minutes}",
+        "PUBLIC COMMENT: {public_comment}",
+        "NEW BUSINESS: {new_business}",
+        "OLD BUSINESS: {old_business}",
+        "ADJOURNMENT: {adjournment}"
+    ]
+    
+    template = PromptTemplate(template=section_templates, input_variables=([prompt_list[1]]))
     chain = load_summarize_chain(llm=prompt_list[2], chain_type='stuff', prompt=template)
+    
     return chain
 
 
