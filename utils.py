@@ -294,7 +294,7 @@ def extract_summary_docs(langchain_document, num_clusters, api_key, find_cluster
 
     indices = get_closest_vectors(vectors, kmeans)
     summary_docs = map_vectors_to_docs(indices, split_document)
-        for doc in summary_docs:
+    for doc in summary_docs:  # Ensure this line is indented correctly
         input_text = doc.text  # Assuming the document object has a 'text' attribute
 
         # Construct the prompt
