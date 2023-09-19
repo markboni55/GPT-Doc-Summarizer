@@ -154,19 +154,27 @@ def create_summarize_chain(prompt_list):
 
     :return: A langchain summarize chain.
     """
-    section_templates = [
-        "CALL TO ORDER: {call_to_order}",
-        "ROLL CALL: {roll_call}",
-        "APPROVAL OF MINUTES: {approval_of_minutes}",
-        "PUBLIC COMMENT: {public_comment}",
-        "NEW BUSINESS: {new_business}",
-        "OLD BUSINESS: {old_business}",
-        "ADJOURNMENT: {adjournment}"
-    ]
-    
+    section_templates = (
+        "CALL TO ORDER: {call_to_order_summary}\n"
+        "ROLL CALL: {roll_call_summary}\n"
+        "APPROVAL OF MINUTES: {approval_of_minutes_summary}\n"
+        "PUBLIC COMMENT: {public_comment_summary}\n"
+        "NEW BUSINESS: {new_business_summary}\n"
+        "OLD BUSINESS: {old_business_summary}\n"
+        "ADJOURNMENT: {adjournment_summary}\n"
+        "DETAILED SUMMARY:\n"
+    )
+
+    # Replace placeholders like '{call_to_order_summary}', '{roll_call_summary}', etc.
+    # with functions to extract and summarize these sections from the input data.
+    # For example, 
+    # "CALL TO ORDER: " + extract_call_to_order_summary(prompt_list[1]),
+    # "ROLL CALL: " + extract_roll_call_summary(prompt_list[1]),
+    # ...
+
     template = PromptTemplate(template=section_templates, input_variables=([prompt_list[1]]))
     chain = load_summarize_chain(llm=prompt_list[2], chain_type='stuff', prompt=template)
-    
+
     return chain
 
 
