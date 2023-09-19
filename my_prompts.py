@@ -1,10 +1,10 @@
 file_map = """
 You will be given a single section from a text. This will be enclosed in triple backticks.
-Provide Detailed Summary including the following sections, [CALL TO ORDER: ROLL CALL: APPROVAL OF MINUTES PUBLIC COMMENT:  NEW BUSINESS: OLD BUSINESS: ADJOURNMENT:] 
+Please provide a detailed summary including the following sections "CALL TO ORDER: ROLL CALL: APPROVAL OF MINUTES PUBLIC COMMENT:  NEW BUSINESS: OLD BUSINESS: ADJOURNMENT:"
 
 '''{text}'''
 
-DETAILED SUMMARY:
+FULL SUMMARY:
 """
 
 
@@ -23,13 +23,14 @@ Format in HTML. Text should be divided into paragraphs. Paragraphs should be ind
 """
 
 youtube_map = """
-You will be presented with a segment from the minutes of a municipal village board meeting, encapsulated within triple backticks. Your task is to craft a concise and coherent summary of that section, 
-emphasizing the primary points and central themes, akin to the Action Minutes format commonly utilized by several government entities. Ensure that the summary maintains the clear and succinct nature characteristic of meeting minutes.
+You will be given a single section from a transcript of a youtube video. This will be enclosed in triple backticks.
+Please provide a detailed summary including the following sections "CALL TO ORDER: ROLL CALL: APPROVAL OF MINUTES PUBLIC COMMENT:  NEW BUSINESS: OLD BUSINESS: ADJOURNMENT:"
 
 '''{text}'''
 
 FULL SUMMARY:
 """
+
 
 youtube_combine = """
 Read all the provided summaries from a youtube transcript. They will be enclosed in triple backticks.
